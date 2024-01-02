@@ -2,34 +2,37 @@ using Input;
 using Model;
 using UnityEngine;
 
-public class HeroView : MonoBehaviour
+namespace View
 {
-    [SerializeField] private Camera _camera;
-    [SerializeField] private float _speed;  
-
-    private Hero _model;
-    private HeroInputRouter _heroInput;
-
-    private void Awake()
+    public class HeroView : MonoBehaviour
     {
-        _model = new Hero(Vector2.zero, 0, _speed);
-        _heroInput = new HeroInputRouter(_camera, _model);
-    }
+        [SerializeField] private Camera _camera;
+        [SerializeField] private float _speed;
 
-    private void Update()
-    {
-        _heroInput.Update();
+        private Hero _model;
+        private HeroInputRouter _heroInput;
 
-        transform.position = _model.Position;
-    }
+        private void Awake()
+        {
+            _model = new Hero(transform.position, transform.rotation.z, _speed);
+            _heroInput = new HeroInputRouter(_camera, _model);
+        }
 
-    private void OnEnable()
-    {
-        _heroInput.OnEnable();
-    }
+        private void Update()
+        {
+            _heroInput.Update();
 
-    private void OnDisable()
-    {
-        _heroInput.OnDisable();
+            transform.position = _model.Position;
+        }
+
+        private void OnEnable()
+        {
+            _heroInput.OnEnable();
+        }
+
+        private void OnDisable()
+        {
+            _heroInput.OnDisable();
+        }
     }
 }
