@@ -13,7 +13,7 @@ public class HeroView : MonoBehaviour
     private void Awake()
     {
         _model = new Hero(Vector2.zero, 0, _speed);
-        _heroInput = new HeroInputRouter(_model, _camera);
+        _heroInput = new HeroInputRouter(_camera, _model);
     }
 
     private void Update()
