@@ -23,6 +23,7 @@ namespace View
             _heroInput.Update();
 
             transform.position = _model.Position;
+            transform.rotation = Quaternion.Euler(0, 0, _model.Rotation);
         }
 
         private void OnEnable()

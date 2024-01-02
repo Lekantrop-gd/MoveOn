@@ -20,6 +20,7 @@ namespace View
             _model.MoveTo(_hero.transform.position);
 
             transform.position = new Vector3(_model.Position.x, _model.Position.y, transform.position.z);
+            transform.rotation = Quaternion.Euler(0, 0, _model.Rotation);
         }
     }
 }
