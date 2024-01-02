@@ -1,0 +1,54 @@
+{
+    "name": "Hero",
+    "maps": [
+        {
+            "name": "Hero",
+            "id": "1c62f119-f55d-41c7-b3e7-7b75b054cb31",
+            "actions": [
+                {
+                    "name": "Touch",
+                    "type": "Button",
+                    "id": "f2aae45f-f2ac-4472-ad75-34b5b02ed5ed",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Position",
+                    "type": "Value",
+                    "id": "8dda66b4-dc38-4a15-b41b-603baa7c7cb2",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "3518a5d6-3eaf-4429-a353-4a661eda0231",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d9981095-28de-43fb-8e21-cf23ff08d485",
+                    "path": "<Mouse>/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
