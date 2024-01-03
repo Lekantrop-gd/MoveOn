@@ -20,7 +20,11 @@ namespace Input
 
         private void OnTouchStarted(InputAction.CallbackContext context)
         {
-            _target = _camera.ScreenToWorldPoint(_input.Hero.Position.ReadValue<Vector2>());
+            Vector2 hitPoint = _camera.ScreenToWorldPoint(_input.Hero.Position.ReadValue<Vector2>());
+            RaycastHit2D hit = Physics2D.Raycast(hitPoint, Vector2.zero);
+
+            if (hit.collider != null)
+                _target = _camera.ScreenToWorldPoint(_input.Hero.Position.ReadValue<Vector2>());
         }
 
         private void OnTouchCanceled(InputAction.CallbackContext context)
