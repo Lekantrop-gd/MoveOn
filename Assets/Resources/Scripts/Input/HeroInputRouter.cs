@@ -1,6 +1,7 @@
 using Model;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using View;
 
 namespace Input
 {
@@ -24,7 +25,8 @@ namespace Input
             RaycastHit2D hit = Physics2D.Raycast(hitPoint, Vector2.zero);
 
             if (hit.collider != null)
-                _target = _camera.ScreenToWorldPoint(_input.Hero.Position.ReadValue<Vector2>());
+                if (hit.collider.gameObject.TryGetComponent<OrbView>(out var orb))
+                    _target = _camera.ScreenToWorldPoint(_input.Hero.Position.ReadValue<Vector2>());
         }
 
         private void OnTouchCanceled(InputAction.CallbackContext context)
