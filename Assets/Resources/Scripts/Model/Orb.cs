@@ -10,10 +10,5 @@ namespace Model
         {
             Scale = scale;
         }
-
-        public void ResizeTo(Vector2 scale, float resizingSpeed)
-        {
-            Scale = Vector2.MoveTowards(Scale, scale, resizingSpeed);
-        }
     }
 }
