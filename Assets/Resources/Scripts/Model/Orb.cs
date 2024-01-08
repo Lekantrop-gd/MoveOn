@@ -10,5 +10,10 @@ namespace Model
         {
             Scale = scale;
         }
+
+        public void ScaleTo(Vector2 scale)
+        {
+            Scale = scale;
+        }
     }
 }
