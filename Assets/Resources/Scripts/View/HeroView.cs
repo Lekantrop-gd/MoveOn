@@ -35,5 +35,13 @@ namespace View
         {
             _heroInput.OnDisable();
         }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.TryGetComponent<OrbView>(out var orb))
+            {
+                orb.Destroy();
+            }
+        }
     }
 }
