@@ -17,8 +17,15 @@ namespace Model
         {
             if (Vector2.Distance(Position, target) > _minDistanceToPlayer)
             {
-                Position = Vector2.Lerp(Position, target, _movingSpeed * Time.deltaTime);
+                Position = Vector2.MoveTowards(Position, target, _movingSpeed * Time.deltaTime);
             }
+        }
+
+        public void LookAt(Vector2 target)
+        {
+            Vector2 direction = target - Position;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            Rotation = angle;
         }
     }
 }
