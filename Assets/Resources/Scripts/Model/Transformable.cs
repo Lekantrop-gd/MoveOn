@@ -5,7 +5,7 @@ namespace Model
     public abstract class Transformable
     {
         public virtual Vector2 Position { get; protected set; }
-        public float Rotation { get; private set; }
+        public float Rotation { get; protected set; }
 
         public Transformable(Vector2 position, float rotation)
         {
