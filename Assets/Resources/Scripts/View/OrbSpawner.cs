@@ -50,11 +50,13 @@ namespace View
         private void OnEnable()
         {
             OrbView.Destroyed += OnOrbDestroyed;
+            OrbView.BecameInvisible += OnOrbDestroyed;
         }
 
         private void OnDisable()
         {
             OrbView.Destroyed -= OnOrbDestroyed;
+            OrbView.BecameInvisible -= OnOrbDestroyed;
         }
 
         private void OnOrbDestroyed(OrbView orb)
