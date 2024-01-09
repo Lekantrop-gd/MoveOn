@@ -6,7 +6,7 @@ namespace View
 {
     public class OrbSpawner : MonoBehaviour
     {
-        [SerializeField] private OrbView _orbView;
+        [SerializeField] private OrbView _orbPrefab;
         [SerializeField] private Transform _spawnCentre;
         [SerializeField] private float _spawnRange;
         [SerializeField] private float _spawnDelay;
@@ -17,7 +17,7 @@ namespace View
 
         private void Awake()
         {
-            _pool = new OrbPool(_orbView, _prewarmedOrbsCount);
+            _pool = new OrbPool(_orbPrefab, _prewarmedOrbsCount);
 
             _waitTime = new WaitForSeconds(_spawnDelay);
             StartCoroutine(StartSpawning());
