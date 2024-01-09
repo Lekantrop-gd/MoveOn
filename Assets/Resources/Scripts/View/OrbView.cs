@@ -12,7 +12,6 @@ namespace View
         private Orb _model;
 
         public static event Action<OrbView> Destroyed;
-        public static event Action<OrbView> BecameInvisible;
 
         private void Update()
         {
@@ -22,11 +21,6 @@ namespace View
                 transform.rotation = Quaternion.Euler(0, 0, _model.Rotation);
                 transform.localScale = _model.Scale;
             }
-        }
-
-        private void OnBecameInvisible()
-        {
-            BecameInvisible?.Invoke(this);
         }
 
         public void Initialize(Vector2 position, float rotation, Vector2 scale)
