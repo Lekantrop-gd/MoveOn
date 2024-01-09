@@ -28,7 +28,7 @@ namespace Model
 
         private void OnOrbDestroy(OrbView orb)
         {
-            Object.Destroy(orb);
+            GameObject.Destroy(orb);
         }
 
         private void OnRelease(OrbView orb)
@@ -43,7 +43,7 @@ namespace Model
 
         private OrbView OnCreateOrb()
         {
-            return Object.Instantiate(_prefab);
+            return GameObject.Instantiate(_prefab);
         }
     }
 }

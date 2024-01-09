@@ -539,7 +539,7 @@ MonoBehaviour:
   _orbView: {fileID: 6817708262001212928, guid: 2adb4b611c523f54d884d0bd34c77ee0, type: 3}
   _spawnCentre: {fileID: 1171436877}
   _spawnRange: 10
-  _spawnDelay: 0.4
+  _spawnDelay: 0.5
   _prewarmedOrbsCount: 100
 --- !u!4 &2018009139
 Transform:

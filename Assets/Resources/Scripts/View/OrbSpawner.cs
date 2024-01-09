@@ -46,5 +46,20 @@ namespace View
                 Gizmos.DrawWireSphere(_spawnCentre.position, _spawnRange);
             }
         }
+
+        private void OnEnable()
+        {
+            OrbView.Destroyed += OnOrbDestroyed;
+        }
+
+        private void OnDisable()
+        {
+            OrbView.Destroyed -= OnOrbDestroyed;
+        }
+
+        private void OnOrbDestroyed(OrbView orb)
+        {
+            _pool.Release(orb);
+        }
     }
 }
