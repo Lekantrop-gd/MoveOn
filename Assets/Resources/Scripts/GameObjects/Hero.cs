@@ -9,6 +9,7 @@ namespace GameObjects
     {
         [SerializeField] private Camera _camera;
         [SerializeField] private float _speed;
+        [SerializeField] private Rope _rope;
         
         private HeroInput _heroInput;
         private bool _moving;
@@ -53,8 +54,11 @@ namespace GameObjects
             {
                 if (hit.collider.gameObject.TryGetComponent<OrbView>(out var orb))
                 {
-                    _moving = true;
-                    StartCoroutine(MoveTo(hitPoint));
+                    if (Vector2.Distance(transform.position, orb.transform.position) <= _rope.Lenght)
+                    {
+                        _moving = true;
+                        StartCoroutine(MoveTo(hitPoint));
+                    }
                 }
             }  
         }
@@ -62,6 +66,7 @@ namespace GameObjects
         private void OnTouchCanceled(InputAction.CallbackContext context)
         {
             _moving = false;
+            _rope.UnHook();
         }
 
         private IEnumerator MoveTo(Vector2 target)
@@ -69,6 +74,7 @@ namespace GameObjects
             while ((Vector2)transform.position != target && _moving) 
             {
                 transform.position = Vector2.Lerp(transform.position, target, _speed * Time.deltaTime);
+                _rope.HookTo(target);
 
                 yield return null;
             }
