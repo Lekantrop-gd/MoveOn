@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace GameObjects
 {
-    public class OrbView : MonoBehaviour
+    public class Orb : MonoBehaviour
     {
         [SerializeField] private float _animationSpeed;
 
-        public static event Action<OrbView> Destroyed;
+        public static event Action<Orb> Destroyed;
 
         public void Initialize(Vector2 position, float rotation, Vector2 scale)
         {

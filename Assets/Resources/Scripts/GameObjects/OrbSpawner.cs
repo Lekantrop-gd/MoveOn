@@ -1,4 +1,3 @@
-using Pools;
 using System.Collections;
 using UnityEngine;
 
@@ -6,18 +5,18 @@ namespace GameObjects
 {
     public class OrbSpawner : MonoBehaviour
     {
-        [SerializeField] private OrbView _orbPrefab;
+        [SerializeField] private Orb _orbPrefab;
         [SerializeField] private Transform _spawnCentre;
         [SerializeField] private float _spawnRange;
         [SerializeField] private float _spawnDelay;
         [SerializeField] private int _prewarmedOrbsCount;
 
         private WaitForSeconds _waitTime;
-        private OrbPool _pool;
+        private CustomUnityPool<Orb> _pool;
 
         private void Awake()
         {
-            _pool = new OrbPool(_orbPrefab, _prewarmedOrbsCount);
+            _pool = new CustomUnityPool<Orb>(_orbPrefab, _prewarmedOrbsCount);
 
             _waitTime = new WaitForSeconds(_spawnDelay);
             StartCoroutine(StartSpawning());
@@ -49,15 +48,15 @@ namespace GameObjects
 
         private void OnEnable()
         {
-            OrbView.Destroyed += OnOrbDestroyed;
+            Orb.Destroyed += OnOrbDestroyed;
         }
 
         private void OnDisable()
         {
-            OrbView.Destroyed -= OnOrbDestroyed;
+            Orb.Destroyed -= OnOrbDestroyed;
         }
 
-        private void OnOrbDestroyed(OrbView orb)
+        private void OnOrbDestroyed(Orb orb)
         {
             _pool.Release(orb);
         }

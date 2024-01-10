@@ -8,15 +8,15 @@ namespace GameObjects
 
         private void OnEnable()
         {
-            OrbView.Destroyed += OnOrbDestroyed;
+            Orb.Destroyed += OnOrbDestroyed;
         }
 
         private void OnDisable()
         {
-            OrbView.Destroyed -= OnOrbDestroyed;
+            Orb.Destroyed -= OnOrbDestroyed;
         }
 
-        private void OnOrbDestroyed(OrbView view)
+        private void OnOrbDestroyed(Orb view)
         {
             var orbVFX = Instantiate(_orbDestroyingVFX, view.transform.position, Quaternion.identity);
             GameObject.Destroy(orbVFX.gameObject, _orbDestroyingVFX.main.duration);

@@ -22,7 +22,7 @@ namespace GameObjects
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.gameObject.TryGetComponent<OrbView>(out var orb)) {
+            if (collision.gameObject.TryGetComponent<Orb>(out var orb)) {
                 orb.Destroy();
                 Used?.Invoke(this);
             }

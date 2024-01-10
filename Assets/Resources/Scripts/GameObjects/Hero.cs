@@ -37,7 +37,7 @@ namespace GameObjects
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.gameObject.TryGetComponent<OrbView>(out var orb))
+            if (collision.gameObject.TryGetComponent<Orb>(out var orb))
             {
                 orb.Destroy();
             }
@@ -52,7 +52,7 @@ namespace GameObjects
 
             if (hit.collider != null)
             {
-                if (hit.collider.gameObject.TryGetComponent<OrbView>(out var orb))
+                if (hit.collider.gameObject.TryGetComponent<Orb>(out var orb))
                 {
                     if (Vector2.Distance(transform.position, orb.transform.position) <= _rope.Lenght)
                     {

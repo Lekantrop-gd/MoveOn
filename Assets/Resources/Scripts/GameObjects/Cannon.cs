@@ -1,5 +1,4 @@
-﻿using Pools;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace GameObjects
 {
@@ -12,11 +11,11 @@ namespace GameObjects
         [SerializeField] private float _followingSpeed;
         [SerializeField] private float _minDistanceToPlayer;
 
-        private BulletPool _pool;
+        private CustomUnityPool<Bullet> _pool;
 
         private void Awake()
         {
-            _pool = new BulletPool(_bulletPrefab, _prewarmedBulletsCount);
+            _pool = new CustomUnityPool<Bullet>(_bulletPrefab, _prewarmedBulletsCount);
             InvokeRepeating(nameof(SpawnBullet), 1, 1);
         }
 
