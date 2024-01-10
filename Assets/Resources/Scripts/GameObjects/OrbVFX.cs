@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace View
+namespace GameObjects
 {
     public class OrbVFX : MonoBehaviour
     {

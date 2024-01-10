@@ -1,4 +1,4 @@
-﻿using View;
+﻿using GameObjects;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -6,42 +6,42 @@ namespace Model
 {
     public class BulletPool
     {
-        private ObjectPool<BulletView> _pool;
-        private BulletView _prefab;
+        private ObjectPool<Bullet> _pool;
+        private Bullet _prefab;
 
-        public BulletPool(BulletView prefab, int prewarmedBulletsCount)
+        public BulletPool(Bullet prefab, int prewarmedBulletsCount)
         {
             _prefab = prefab;
-            _pool = new ObjectPool<BulletView>(OnCreateBullet, OnGetBullet, OnRelease, OnBulletDestroy, false, prewarmedBulletsCount);
+            _pool = new ObjectPool<Bullet>(OnCreateBullet, OnGetBullet, OnRelease, OnBulletDestroy, false, prewarmedBulletsCount);
         }
 
-        public BulletView Get()
+        public Bullet Get()
         {
             var bullet = _pool.Get();
             return bullet;
         }
 
-        public void Release(BulletView bullet)
+        public void Release(Bullet bullet)
         {
             _pool.Release(bullet);
         }
 
-        private void OnBulletDestroy(BulletView bullet)
+        private void OnBulletDestroy(Bullet bullet)
         {
             GameObject.Destroy(bullet);
         }
 
-        private void OnRelease(BulletView bullet)
+        private void OnRelease(Bullet bullet)
         {
             bullet.gameObject.SetActive(false);
         }
 
-        private void OnGetBullet(BulletView bullet)
+        private void OnGetBullet(Bullet bullet)
         {
             bullet.gameObject.SetActive(true);
         }
 
-        private BulletView OnCreateBullet()
+        private Bullet OnCreateBullet()
         {
             return GameObject.Instantiate(_prefab);
         }

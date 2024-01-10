@@ -2,7 +2,7 @@ using Model;
 using System.Collections;
 using UnityEngine;
 
-namespace View
+namespace GameObjects
 {
     public class OrbSpawner : MonoBehaviour
     {

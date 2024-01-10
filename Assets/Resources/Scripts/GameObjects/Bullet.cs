@@ -2,21 +2,19 @@
 using System;
 using UnityEngine;
 
-namespace View
+namespace GameObjects
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public class BulletView : MonoBehaviour
+    public class Bullet : MonoBehaviour
     {
-        private Bullet _model;
         private Rigidbody2D _rigitBody;
 
-        public static event Action<BulletView> Used;
+        public static event Action<Bullet> Used;
 
-        public void Initialize(Vector2 startPosition, Vector2 direction, float rotation, float movingSpeed)
+        public void Initialize(Vector2 startPosition, Vector2 direction, Quaternion rotation, float movingSpeed)
         {
-            _model = new Bullet(startPosition, rotation);
-            transform.position = _model.Position;
-            transform.rotation = Quaternion.Euler(0, 0, _model.Rotation);
+            transform.position = startPosition;
+            transform.rotation = rotation;
 
             _rigitBody = GetComponent<Rigidbody2D>();
             _rigitBody.velocity = direction * movingSpeed;
@@ -29,7 +27,7 @@ namespace View
                 Used?.Invoke(this);
             }
 
-            if (collision.gameObject.TryGetComponent<HeroView>(out var hero))
+            if (collision.gameObject.TryGetComponent<Hero>(out var hero))
             {
                 //hero.Kill();
                 Used?.Invoke(this);
