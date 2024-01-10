@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 1171436877}
+    - target: {fileID: 1566420353662718492, guid: ee2cf9d0a533f544c888d4e88b9813f4, type: 3}
+      propertyPath: _prewarmedBulletsCount
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2468053649530898019, guid: ee2cf9d0a533f544c888d4e88b9813f4, type: 3}
       propertyPath: m_Name
       value: Cannon
@@ -387,6 +391,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _camera: {fileID: 519420031}
   _speed: 5
+  _rope: {fileID: 0}
+  _startRopeLenght: 5
 --- !u!212 &1171436876
 SpriteRenderer:
   m_ObjectHideFlags: 0

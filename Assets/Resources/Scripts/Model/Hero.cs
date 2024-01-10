@@ -6,8 +6,8 @@ namespace Model
     {
         private float _movingSpeed;
 
-        public Hero(Vector2 position, float rotation, float movingSpeed) : base(position, rotation) 
-        { 
+        public Hero(Vector2 position, float rotation, float movingSpeed) : base(position, rotation)
+        {
             _movingSpeed = movingSpeed;
         }
 
