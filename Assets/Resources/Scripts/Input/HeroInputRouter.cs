@@ -25,32 +25,17 @@ namespace Input
             RaycastHit2D hit = Physics2D.Raycast(hitPoint, Vector2.zero);
 
             if (hit.collider != null)
-            {
                 if (hit.collider.gameObject.TryGetComponent<OrbView>(out var orb))
-                {
-                    Vector2 target = _camera.ScreenToWorldPoint(_input.Hero.Position.ReadValue<Vector2>());
-                    
-                    if (Vector2.Distance(_model.Position, target) <= _ropeLenght)
-                    {
-                        _target = target;
-                        _isMoving = true;
-                    }
-                }
-            }
+                    _target = _camera.ScreenToWorldPoint(_input.Hero.Position.ReadValue<Vector2>());
         }
 
         private void OnTouchCanceled(InputAction.CallbackContext context)
         {
-            _isMoving = false;
             _target = _model.Position;
         }
 
         public void Update()
         {
-            _ropeLenght += _isMoving ? -_ropeLenghtIncreaseDelta : _ropeLenghtIncreaseDelta;
-
-            Debug.Log(_ropeLenght);
-
             _model.MoveTo(_target);
         }
 
