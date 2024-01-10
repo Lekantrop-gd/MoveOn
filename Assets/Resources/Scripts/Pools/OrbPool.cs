@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Pool;
 
-namespace Model
+namespace Pools
 {
     public class OrbPool
     {
