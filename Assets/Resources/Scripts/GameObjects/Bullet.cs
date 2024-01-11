@@ -16,7 +16,7 @@ namespace GameObjects
             transform.rotation = rotation;
 
             _rigitBody = GetComponent<Rigidbody2D>();
-            _rigitBody.velocity = direction * movingSpeed * Time.deltaTime;
+            _rigitBody.velocity = movingSpeed * Time.deltaTime * direction;
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
