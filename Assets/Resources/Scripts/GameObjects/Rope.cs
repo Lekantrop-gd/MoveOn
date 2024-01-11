@@ -6,30 +6,45 @@ namespace GameObjects
     public class Rope : MonoBehaviour
     {
         [SerializeField] private float _startLenght;
+        [SerializeField] private float _recoverySpeed;
 
-        public float Lenght { get; private set; }
+        public float Lengh { get; private set; }
 
         private LineRenderer _lineRenderer;
+        private bool _hooked;
 
         private void Awake()
         {
-            Lenght = _startLenght;
+            Lengh = _startLenght;
 
             _lineRenderer = GetComponent<LineRenderer>();
             _lineRenderer.enabled = false;
             _lineRenderer.positionCount = 2;
         }
 
-        public void HookTo(Vector2 target)
+        private void Update()
         {
-            _lineRenderer.SetPosition(0, transform.position);
-            _lineRenderer.SetPosition(1, target);
+            if (_hooked == false)
+                Lengh += _recoverySpeed * Time.deltaTime;
+
+            Debug.Log(Lengh);
+        }
+
+        public void HookTo(Vector2 startPosition, Vector2 endPosition, float movingSpeed)
+        {
+            _hooked = true;
+
+            _lineRenderer.SetPosition(0, startPosition);
+            _lineRenderer.SetPosition(1, endPosition);
             _lineRenderer.enabled = true;
+
+            Lengh = Mathf.Lerp(Lengh, Lengh - Vector2.Distance(startPosition, endPosition), Time.deltaTime);
         }
 
         public void UnHook()
         {
             _lineRenderer.enabled = false;
+            _hooked = false;
         }
     }
 }

@@ -8,8 +8,8 @@ namespace GameObjects
     public class Hero : MonoBehaviour
     {
         [SerializeField] private Camera _camera;
-        [SerializeField] private float _speed;
         [SerializeField] private Rope _rope;
+        [SerializeField] private float _speed;
         
         private HeroInput _heroInput;
         private bool _moving;
@@ -54,13 +54,13 @@ namespace GameObjects
             {
                 if (hit.collider.gameObject.TryGetComponent<Orb>(out var orb))
                 {
-                    if (Vector2.Distance(transform.position, orb.transform.position) <= _rope.Lenght)
+                    if (Vector2.Distance(transform.position, orb.transform.position) <= _rope.Lengh)
                     {
                         _moving = true;
                         StartCoroutine(MoveTo(hitPoint));
                     }
                 }
-            }  
+            }
         }
 
         private void OnTouchCanceled(InputAction.CallbackContext context)
@@ -74,7 +74,7 @@ namespace GameObjects
             while ((Vector2)transform.position != target && _moving) 
             {
                 transform.position = Vector2.Lerp(transform.position, target, _speed * Time.deltaTime);
-                _rope.HookTo(target);
+                _rope.HookTo(transform.position, target, _speed);
 
                 yield return null;
             }
