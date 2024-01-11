@@ -36,7 +36,7 @@ namespace GameObjects
             _lineRenderer.SetPosition(1, endPosition);
             _lineRenderer.enabled = true;
 
-            Lengh = Mathf.Lerp(Lengh, Lengh - Vector2.Distance(startPosition, endPosition), Time.deltaTime);
+            Lengh = Mathf.Lerp(Lengh, Lengh - Vector2.Distance(startPosition, endPosition), Time.deltaTime * movingSpeed);
         }
 
         public void UnHook()
