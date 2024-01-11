@@ -243,7 +243,7 @@ PrefabInstance:
       objectReference: {fileID: 1171436877}
     - target: {fileID: 1566420353662718492, guid: ee2cf9d0a533f544c888d4e88b9813f4, type: 3}
       propertyPath: _bulletsSpeed
-      value: 5000
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1566420353662718492, guid: ee2cf9d0a533f544c888d4e88b9813f4, type: 3}
       propertyPath: _prewarmedBulletsCount
@@ -259,7 +259,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3966934753699314740, guid: ee2cf9d0a533f544c888d4e88b9813f4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3966934753699314740, guid: ee2cf9d0a533f544c888d4e88b9813f4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1097,7 +1097,7 @@ MonoBehaviour:
   _orbPrefab: {fileID: 6817708262001212928, guid: 2adb4b611c523f54d884d0bd34c77ee0, type: 3}
   _spawnCentre: {fileID: 1171436877}
   _spawnRange: 15
-  _spawnDelay: 0.2
+  _spawnDelay: 0.1
   _prewarmedOrbsCount: 100
 --- !u!4 &2018009139
 Transform:
