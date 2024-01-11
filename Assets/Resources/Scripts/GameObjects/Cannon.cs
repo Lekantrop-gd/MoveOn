@@ -37,7 +37,7 @@ namespace GameObjects
 
         private void SpawnBullet()
         {
-            _pool.Get().Initialize(transform.position, _hero.transform.position - transform.position, transform.rotation, _bulletsSpeed);
+            _pool.Get().Initialize(transform.position, (_hero.transform.position - transform.position).normalized, transform.rotation, _bulletsSpeed);
         }
 
         private void OnEnable()

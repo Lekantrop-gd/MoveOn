@@ -243,7 +243,7 @@ PrefabInstance:
       objectReference: {fileID: 1171436877}
     - target: {fileID: 1566420353662718492, guid: ee2cf9d0a533f544c888d4e88b9813f4, type: 3}
       propertyPath: _bulletsSpeed
-      value: 500
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 1566420353662718492, guid: ee2cf9d0a533f544c888d4e88b9813f4, type: 3}
       propertyPath: _prewarmedBulletsCount
