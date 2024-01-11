@@ -1,4 +1,5 @@
 using Input;
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -7,10 +8,12 @@ namespace GameObjects
 {
     public class Hero : MonoBehaviour
     {
+        public static event Action OrbDestroyed;
+
         [SerializeField] private Camera _camera;
         [SerializeField] private Rope _rope;
         [SerializeField] private float _speed;
-        
+
         private HeroInput _heroInput;
         private bool _moving;
         
@@ -40,6 +43,7 @@ namespace GameObjects
             if (collision.gameObject.TryGetComponent<Orb>(out var orb))
             {
                 orb.Destroy();
+                OrbDestroyed?.Invoke();
             }
         }
 

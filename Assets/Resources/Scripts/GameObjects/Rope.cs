@@ -26,8 +26,6 @@ namespace GameObjects
         {
             if (_hooked == false)
                 Lengh += _recoverySpeed * Time.deltaTime;
-
-            Debug.Log(Lengh);
         }
 
         public void HookTo(Vector2 startPosition, Vector2 endPosition, float movingSpeed)
