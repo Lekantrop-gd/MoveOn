@@ -6,9 +6,9 @@ namespace GameObjects
     [RequireComponent(typeof(Rigidbody2D))]
     public class Bullet : MonoBehaviour
     {
-        private Rigidbody2D _rigitBody;
-
         public static event Action<Bullet> Used;
+
+        private Rigidbody2D _rigitBody;
 
         public void Initialize(Vector2 startPosition, Vector2 direction, Quaternion rotation, float movingSpeed)
         {
@@ -16,7 +16,7 @@ namespace GameObjects
             transform.rotation = rotation;
 
             _rigitBody = GetComponent<Rigidbody2D>();
-            _rigitBody.velocity = direction * movingSpeed;
+            _rigitBody.velocity = direction * movingSpeed * Time.deltaTime;
         }
 
         private void OnCollisionEnter2D(Collision2D collision)

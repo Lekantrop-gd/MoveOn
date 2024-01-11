@@ -407,8 +407,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 519420031}
-  _speed: 5
   _rope: {fileID: 1199676565}
+  _speed: 5
 --- !u!212 &1171436876
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -573,6 +573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startLenght: 10
+  _recoverySpeed: 1
 --- !u!120 &1199676566
 LineRenderer:
   serializedVersion: 2
