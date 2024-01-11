@@ -678,8 +678,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fcd20cfdb115e54392be35a59a22909, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startLenght: 10
-  _recoverySpeed: 1
 --- !u!120 &1199676566
 LineRenderer:
   serializedVersion: 2
@@ -952,7 +950,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -50}
-  m_SizeDelta: {x: 285.08, y: 71.26999}
+  m_SizeDelta: {x: 280, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1814613611
 MonoBehaviour:
@@ -1011,7 +1009,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: -1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -1063,9 +1061,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e462074b14d40e243ba95b53115da8cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _text: {fileID: 1814613611}
-  _textAnimationOffset: 25
-  _textAnimationDuration: 1
+  _textAnimationUpYPosition: -25
+  _textAnimationDownYPosition: -50
+  _textAnimationDuration: 0.1
 --- !u!1 &2018009137
 GameObject:
   m_ObjectHideFlags: 0

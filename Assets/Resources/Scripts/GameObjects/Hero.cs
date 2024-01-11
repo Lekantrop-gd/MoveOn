@@ -58,11 +58,8 @@ namespace GameObjects
             {
                 if (hit.collider.gameObject.TryGetComponent<Orb>(out var orb))
                 {
-                    if (Vector2.Distance(transform.position, orb.transform.position) <= _rope.Lengh)
-                    {
-                        _moving = true;
-                        StartCoroutine(MoveTo(hitPoint));
-                    }
+                    _moving = true;
+                    StartCoroutine(MoveTo(hitPoint));
                 }
             }
         }
@@ -78,7 +75,7 @@ namespace GameObjects
             while ((Vector2)transform.position != target && _moving) 
             {
                 transform.position = Vector2.Lerp(transform.position, target, _speed * Time.deltaTime);
-                _rope.HookTo(transform.position, target, _speed);
+                _rope.HookTo(transform.position, target);
 
                 yield return null;
             }
