@@ -12,8 +12,7 @@ namespace GameObjects
             transform.position = Vector3.Lerp(
                 transform.position, 
                 new Vector3(_hero.transform.position.x, _hero.transform.position.y, transform.position.z), 
-                _speed * Time.deltaTime
-                );
+                _speed * Time.deltaTime);
         }
     }
 }
