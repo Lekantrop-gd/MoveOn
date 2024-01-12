@@ -464,7 +464,6 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
   - component: {fileID: 519420034}
-  - component: {fileID: 519420035}
   - component: {fileID: 519420036}
   m_Layer: 0
   m_Name: Main Camera
@@ -622,18 +621,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hero: {fileID: 1171436875}
   _speed: 5
---- !u!114 &519420035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78af519e29af16e4e8650cf231f22c74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &519420036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -714,9 +701,9 @@ MonoBehaviour:
   _onGameOver:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 527080145}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
+      - m_Target: {fileID: 527080147}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -726,9 +713,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2018009137}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
+      - m_Target: {fileID: 2018009138}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -767,6 +754,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2468053649530898019, guid: ee2cf9d0a533f544c888d4e88b9813f4, type: 3}
   m_PrefabInstance: {fileID: 78972827}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &527080147 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1566420353662718492, guid: ee2cf9d0a533f544c888d4e88b9813f4, type: 3}
+  m_PrefabInstance: {fileID: 78972827}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527080145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8870913b828d66541b3dcee7339839f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &593723432
 GameObject:
   m_ObjectHideFlags: 0
