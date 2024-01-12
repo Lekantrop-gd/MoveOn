@@ -28,7 +28,7 @@ namespace GameObjects
 
             if (collision.gameObject.TryGetComponent<Hero>(out var hero))
             {
-                //hero.Kill();
+                hero.Kill();
                 Used?.Invoke(this);
             }
         }

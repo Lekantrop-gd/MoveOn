@@ -14,6 +14,8 @@ namespace GameObjects
         [SerializeField] private Rope _rope;
         [SerializeField] private float _speed;
 
+        public static event Action Died;
+
         private HeroInput _heroInput;
         private bool _moving;
         
@@ -79,6 +81,13 @@ namespace GameObjects
 
                 yield return null;
             }
+        }
+
+        public void Kill()
+        {
+            _rope.UnHook();
+            _moving = false;
+            Died?.Invoke();
         }
     }
 }
