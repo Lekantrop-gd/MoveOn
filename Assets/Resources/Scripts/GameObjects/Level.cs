@@ -1,12 +1,15 @@
 using GameObjects;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class Level : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _bestScore;
     [SerializeField] private Score _score;
+    [SerializeField] private UnityEvent _onGameStart;
+    [SerializeField] private UnityEvent _onGameOver;
 
     private readonly string _bestScoreSave = nameof(_bestScoreSave);
 
@@ -25,15 +28,20 @@ public class Level : MonoBehaviour
 
     private void OnEnable()
     {
-        Hero.Died += FinishLevel;
+        Hero.Died += FinishGame;
     }
 
     private void OnDisable()
     {
-        Hero.Died -= FinishLevel;
+        Hero.Died -= FinishGame;
     }
 
-    public void FinishLevel()
+    public void StartGame()
+    {
+        _onGameStart?.Invoke();
+    }
+
+    public void FinishGame()
     {
         if (PlayerPrefs.GetInt(_bestScoreSave) < _score.Amount)
         {
@@ -41,6 +49,8 @@ public class Level : MonoBehaviour
             PlayerPrefs.Save();
         }
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+        _onGameOver?.Invoke();
     }
 }

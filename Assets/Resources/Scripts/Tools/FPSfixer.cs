@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class FPSfixer : MonoBehaviour
+public class FPSFixer : MonoBehaviour
 {
     private void Awake()
     {
