@@ -49,7 +49,7 @@ public class Level : MonoBehaviour
             PlayerPrefs.Save();
         }
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
         _onGameOver?.Invoke();
     }

@@ -27,12 +27,12 @@ public class Score : MonoBehaviour
 
     private void OnEnable()
     {
-        Hero.OrbDestroyed += OnOrbDestroyed;
+        Hero.DestroyedOrb += OnOrbDestroyed;
     }
 
     private void OnDisable()
     {
-        Hero.OrbDestroyed -= OnOrbDestroyed;
+        Hero.DestroyedOrb -= OnOrbDestroyed;
 
         if (_tweener != null && _tweener.IsActive())
         {

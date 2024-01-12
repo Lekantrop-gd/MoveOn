@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 namespace GameObjects
 {
@@ -10,13 +11,14 @@ namespace GameObjects
         [SerializeField] private Hero _hero;
         [SerializeField] private float _followingSpeed;
         [SerializeField] private float _minDistanceToPlayer;
+        [SerializeField] private UnityEvent _onShoot;
 
         private CustomUnityPool<Bullet> _pool;
 
         private void Awake()
         {
             _pool = new CustomUnityPool<Bullet>(_bulletPrefab, _prewarmedBulletsCount);
-            InvokeRepeating(nameof(SpawnBullet), 1, 1);
+            InvokeRepeating(nameof(Shoot), 1, 1);
         }
 
         private void Update()
@@ -35,9 +37,10 @@ namespace GameObjects
             transform.rotation = Quaternion.Euler(0, 0, angle);
         }
 
-        private void SpawnBullet()
+        private void Shoot()
         {
             _pool.Get().Initialize(transform.position, (_hero.transform.position - transform.position).normalized, transform.rotation, _bulletsSpeed);
+            _onShoot?.Invoke();
         }
 
         private void OnEnable()

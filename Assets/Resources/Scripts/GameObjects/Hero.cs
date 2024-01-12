@@ -2,19 +2,20 @@ using Input;
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 namespace GameObjects
 {
     public class Hero : MonoBehaviour
     {
-        public static event Action OrbDestroyed;
+        public static event Action DestroyedOrb;
+        public static event Action Died;
 
         [SerializeField] private Camera _camera;
         [SerializeField] private Rope _rope;
         [SerializeField] private float _speed;
-
-        public static event Action Died;
+        [SerializeField] private UnityEvent _onDestroyedOrb;
 
         private HeroInput _heroInput;
         private bool _moving;
@@ -45,7 +46,8 @@ namespace GameObjects
             if (collision.gameObject.TryGetComponent<Orb>(out var orb))
             {
                 orb.Destroy();
-                OrbDestroyed?.Invoke();
+                DestroyedOrb?.Invoke();
+                _onDestroyedOrb?.Invoke();
             }
         }
 
