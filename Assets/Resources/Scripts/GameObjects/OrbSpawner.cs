@@ -49,11 +49,13 @@ namespace GameObjects
         private void OnEnable()
         {
             Orb.Destroyed += OnOrbDestroyed;
+            Orb.Used += OnOrbDestroyed;
         }
 
         private void OnDisable()
         {
             Orb.Destroyed -= OnOrbDestroyed;
+            Orb.Used -= OnOrbDestroyed;
         }
 
         private void OnOrbDestroyed(Orb orb)

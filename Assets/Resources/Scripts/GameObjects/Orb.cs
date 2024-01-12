@@ -9,6 +9,7 @@ namespace GameObjects
         [SerializeField] private float _animationSpeed;
 
         public static event Action<Orb> Destroyed;
+        public static event Action<Orb> Used;
 
         public void Initialize(Vector2 position, float rotation, Vector2 scale)
         {
@@ -31,6 +32,11 @@ namespace GameObjects
         public void Destroy()
         {
             Destroyed?.Invoke(this);
+        }
+
+        private void OnBecameInvisible()
+        {
+            Used?.Invoke(this);
         }
     }
 }
