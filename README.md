@@ -22,7 +22,7 @@ Move On is a simple action game prototype in which you should run away from the 
 
 ### Project Overview
 
-Although currently in its initial phases, this project demonstrates promising potential for expansion. Access the builds for your Android device or PC conveniently located [here](https://drive.google.com/drive/folders/1XkY3Tqz953llExpSCrZerWEj4TTBxGvF?usp=sharing) for a seamless download and installation process. Of course, screenshots of a project can be found below.
+Although currently in its initial phases, this prototype could be grown into a complete game. Access the builds for your Android device or PC conveniently located [here](https://drive.google.com/drive/folders/1XkY3Tqz953llExpSCrZerWEj4TTBxGvF?usp=sharing) for a download and installation process. Of course, screenshots of a project can be found below.
 
 #### Appreciate your interest in my work! Wishing you a fantastic day! ❤️
 
